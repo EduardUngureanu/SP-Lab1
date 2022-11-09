@@ -10,3 +10,9 @@ https://github.com/EduardUngureanu/SP-Lab1/tree/ec0835ddea3fbae2845632cc21a9e4a3
 - in chapter nu ai nevoie de lista de elemente.
 
 Nota 10
+
+# Lab3
+https://github.com/EduardUngureanu/SP-Lab1/tree/053037384b40860d375c1464e34f5d32f6541662
+- in book, in metoda print, doar printezi autorii si apelezi print-ul din super.... adica din section, ca acolo se ocupa cu titlul si cu elementele
+
+Nota 10
