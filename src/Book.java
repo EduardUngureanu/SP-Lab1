@@ -1,47 +1,37 @@
 package src;
 
-import java.util.Vector;
+import java.util.LinkedList;
 
-public class Book {
-    String title;
-    Vector<Chapter> chapter_list;
-    Vector<Author> author_list;
+public class Book extends Section {
+    LinkedList<Author> authors;
 
     public Book(String title) {
-        this.title = title;
-        this.chapter_list = new Vector<>();
-        this.author_list = new Vector<>();
+        super(title);
+        this.authors = new LinkedList<>();
     }
 
     public void addAuthor(Author author) {
-        this.author_list.add(author);
-    }
-
-    public int createChapter(String name) {
-        chapter_list.add(new Chapter(name));
-        return chapter_list.indexOf(chapter_list.lastElement());
-    }
-
-    public Chapter getChapter(int index) {
-        return chapter_list.get(index);
+        this.authors.add(author);
     }
 
     public void print() {
-        System.out.println("Title: " + this.title);
-        if(this.author_list.size() > 1) {
+        System.out.print("Book: " + this.title + "\n\n");
+        if (this.authors.size() > 1) {
             StringBuilder author_out = new StringBuilder();
             author_out.append("Authors: ");
-            for(Author author : this.author_list) {
-                author_out.append(author.name);
+            for (Author a : this.authors) {
+                author_out.append(a.name);
                 author_out.append("; ");
             }
             System.out.println(author_out);
-        } else {
-            this.author_list.firstElement().print();
+        }
+        else {
+            this.authors.getFirst().print();
         }
         System.out.println();
-        for(Chapter chapter : chapter_list) {
-            chapter.print();
+        for (Element e : elements) {
+            System.out.println();
+            e.print();
         }
     }
 }

@@ -2,22 +2,18 @@ package src;
 
 import java.util.LinkedList;
 
-public class Image implements Element {
-    String name;
+public class TableOfContents implements Element {
+    String text;
     LinkedList<Element> elements;
 
-    public Image(String name) {
-        this.name = name;
+    public TableOfContents(String text) {
+        this.text = text;
         this.elements = new LinkedList<>();
     }
 
     @Override
     public void print() {
-        System.out.print("Image with name: " + this.name);
-        for(Element e : elements) {
-            System.out.println();
-            e.print();
-        }
+        System.out.print(text);
     }
 
     @Override
