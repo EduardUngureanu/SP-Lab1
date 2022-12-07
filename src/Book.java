@@ -15,7 +15,6 @@ public class Book extends Section {
     }
 
     public void print() {
-        System.out.print("Book: " + this.title + "\n\n");
         if (this.authors.size() > 1) {
             StringBuilder author_out = new StringBuilder();
             author_out.append("Authors: ");
@@ -29,9 +28,6 @@ public class Book extends Section {
             this.authors.getFirst().print();
         }
         System.out.println();
-        for (Element e : elements) {
-            System.out.println();
-            e.print();
-        }
+        super.print();
     }
 }
