@@ -1,6 +1,7 @@
 package src;
 
 import java.util.LinkedList;
+import java.util.concurrent.TimeUnit;
 
 public class Image implements Element {
     String name;
@@ -9,6 +10,11 @@ public class Image implements Element {
     public Image(String name) {
         this.name = name;
         this.elements = new LinkedList<>();
+        try {
+            TimeUnit.SECONDS.sleep(5);
+        } catch(InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
