@@ -1,17 +1,13 @@
 package src;
 
+import java.util.LinkedList;
+
 public class ImageProxy implements Element {
     String name;
     Image realimg = null;
 
     public ImageProxy(String name) {
         this.name = name;
-    }
-
-    @Override
-    public void print() {
-        loadImage();
-        realimg.print();
     }
 
     @Override
@@ -32,9 +28,19 @@ public class ImageProxy implements Element {
         return realimg.get(index);
     }
 
+    @Override
+    public void accept(Visitor visitor) {
+        visitor.visitImageProxy(this);
+    }
+
     void loadImage() {
         if (realimg == null) {
             realimg = new Image(name);
         }
+    }
+
+    public Image getRealimg() {
+        loadImage();
+        return realimg;
     }
 }

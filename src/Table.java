@@ -12,15 +12,6 @@ public class Table implements Element {
     }
 
     @Override
-    public void print() {
-        System.out.print("Table with name: " + this.name);
-        for(Element e : elements) {
-            System.out.println();
-            e.print();
-        }
-    }
-
-    @Override
     public void add(Element element) {
         elements.add(element);
     }
@@ -33,5 +24,10 @@ public class Table implements Element {
     @Override
     public Element get(int index) {
         return elements.get(index);
+    }
+
+    @Override
+    public void accept(Visitor visitor) {
+        visitor.visitTable(this);
     }
 }

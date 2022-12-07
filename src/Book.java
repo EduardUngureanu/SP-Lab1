@@ -14,20 +14,7 @@ public class Book extends Section {
         this.authors.add(author);
     }
 
-    public void print() {
-        if (this.authors.size() > 1) {
-            StringBuilder author_out = new StringBuilder();
-            author_out.append("Authors: ");
-            for (Author a : this.authors) {
-                author_out.append(a.name);
-                author_out.append("; ");
-            }
-            System.out.println(author_out);
-        }
-        else {
-            this.authors.getFirst().print();
-        }
-        System.out.println();
-        super.print();
+    public void accept(Visitor visitor) {
+        visitor.visitBook(this);
     }
 }

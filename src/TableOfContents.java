@@ -12,11 +12,6 @@ public class TableOfContents implements Element {
     }
 
     @Override
-    public void print() {
-        System.out.print(text);
-    }
-
-    @Override
     public void add(Element element) {
         elements.add(element);
     }
@@ -29,5 +24,10 @@ public class TableOfContents implements Element {
     @Override
     public Element get(int index) {
         return elements.get(index);
+    }
+
+    @Override
+    public void accept(Visitor visitor) {
+        visitor.visitTableOfContents(this);
     }
 }
